@@ -1,15 +1,23 @@
-
+ 
 #include <stdio.h>
-/* print the alphabet */
+#include <stdlib.h>
+#include <ctype.h>
+/* Function to print the alphabet */
+/* in lower and upper case */
 int main(void)
 {
+char x;
+
+for (int x = A; x <= Z; x++)
 {
-char alp[26] = "abcdefghijklmnopqrstuvwxyz";
-int i;
-for (i=0; i < 26; i++)
-{
-putchar(alp[i]);
+int lower_x = tolower(x);
+putchar(lower_x);
+
 }
+for (int x = a; x <= z; x++)
+{
+int Capital_x = toupper(x);
 putchar(n);
+}
 return (0);
 }
