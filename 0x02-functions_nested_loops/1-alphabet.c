@@ -1,6 +1,4 @@
-#ifndef HOLBERTON_H
-#include "holberton.h"
-#endif
+#include "stdlib.h"
 /**
  * print_alphabet - order from a to z
  *
