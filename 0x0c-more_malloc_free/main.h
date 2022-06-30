@@ -2,10 +2,10 @@
 #define MAIN_H
 
 /**
- * File: holberton.h
+ * File: main.h
  * Auth: Brennan D Baraban
  * Desc: Header file containing prototypes for all functions
- *       used in the 0x0B-more_malloc_free directory.
+ *       used in the 0x0BC-more_malloc_free directory.
  */
 
 int _putchar(char c);
