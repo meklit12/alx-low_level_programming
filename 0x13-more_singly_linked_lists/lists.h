@@ -1,5 +1,5 @@
-#ifndef HOLBERTON
-#define HOLBERTON
+#ifndef ALX
+#define ALX
 /**
  * struct listint_s - singly linked list
  * @n: integer
