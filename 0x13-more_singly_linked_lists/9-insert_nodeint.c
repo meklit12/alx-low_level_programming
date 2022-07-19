@@ -1,83 +1,45 @@
-include <stdlib.h>
 #include "lists.h"
+
 /**
- * insert_nodeint_at_index - insert node at given pos
- * @head: head node
- * @idx: index pos
- * @n: new node data
- * Return: address of new node
+ * insert_nodeint_at_index - Inserts a new node to a listint_t
+ *                           list at a given position.
+ * @head: A pointer to the address of the
+ *        head of the listint_t list.
+ * @idx: The index of the listint_t list where the new
+ *       node should be added - indices start at 0.
+ * @n: The integer for the new node to contain.
+ *
+ * Return: If the function fails - NULL.
+ *         Otherwise - the address of the new node.
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *node, *prev;
+	listint_t *new, *copy = *head;
+	unsigned int node;
 
-	if (!head)
-		return (0);
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+
+	new->n = n;
 
 	if (idx == 0)
 	{
-		node = add_nodeint(head, n);
-		return (node);
+		new->next = copy;
+		*head = new;
+		return (new);
 	}
 
-	node = malloc(sizeof(listint_t));
-	if (!node)
-		return (0);
-	node->n = n;
-
-	prev = get_nodeint_at_index(*head, idx - 1);
-	if (!prev)
+	for (node = 0; node < (idx - 1); node++)
 	{
-		free(node);
-		return (0);
+		if (copy == NULL || copy->next == NULL)
+			return (NULL);
+
+		copy = copy->next;
 	}
 
-	node->next = prev->next;
-	prev->next = node;
-	return (node);
-}
-/**
- * get_nodeint_at_index - get node at index
- * @head: head node
- * @index: index node
- * Return: address of index node
- */
-listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
-{
-	unsigned int i = 0;
-	listint_t *node;
+	new->next = copy->next;
+	copy->next = new;
 
-	node = head;
-
-	if (!node)
-		return (0);
-
-	while (node)
-	{
-		if (index == i)
-			return (node);
-		i++;
-		node = node->next;
-	}
-	return (0);
-}
-/**
- * add_nodeint - add not at start
- * Return: pointer to node
- * @head: head node
- * @n: new node data
- */
-listint_t *add_nodeint(listint_t **head, const int n)
-{
-	listint_t *node;
-
-	if (!head)
-		return (0);
-	node = malloc(sizeof(listint_t));
-	if (!node)
-		return (0);
-	node->n = n;
-	node->next = *head;
-	*head = node;
-	return (node);
+	return (new);
 }
