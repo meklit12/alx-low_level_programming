@@ -13,8 +13,4 @@ int get_endianness(void)
 
 	return ((int)*c);
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
+
