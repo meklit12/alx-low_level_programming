@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
  * read_textfile - reads and prints from a file
